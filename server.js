@@ -21,6 +21,7 @@ const corsOptions = {
     credentials:true
 }
 
+
 app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
@@ -31,7 +32,9 @@ app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
-
+app.use("/", (req, res) => {
+    res.send("Hello world!");
+  });
 
 
 app.listen(PORT,()=>{
